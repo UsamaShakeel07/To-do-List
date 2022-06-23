@@ -52,7 +52,7 @@
                                   'text-primary-500': todo.status === 'finished'}" @click="changeStatus(index)" class="pointer">{{ firstCharUpper(todo.status) }}</span>
                                 </td>
                                 <div>
-                                    <td class="text-sm text-gray-900 font-light py-4 whitespace-nowrap">
+                                <td class="text-sm text-gray-900 font-light py-4 whitespace-nowrap">
                                         <span :class="{'finished': todo.status === 'finished'}">
                                             {{todo.description}}
                                         </span>
@@ -134,7 +134,7 @@ export default {
             if (this.todo.length === 0) return;
             if (this.editedTodo === null) {
                 this.todos.push({
-                    number: 'this.todo',
+                    number: 3,
                     description: this.todo,
                     status: 'to-do',
                     id: '113'
