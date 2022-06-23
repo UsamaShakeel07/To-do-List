@@ -127,7 +127,6 @@ export default {
                 todo.description.toLowerCase().includes(this.todo.toLowerCase())
             );
         },
-
     },
 
     methods: {
