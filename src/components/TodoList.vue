@@ -4,7 +4,7 @@
     <div class="z-10 field flex justify-center w-full items-center content-center pt-10">
         <input v-model="todo" v-on:keyup.enter="submitTodo" type="text" class="rounded-l-3xl w-60 h-10 text-center justify-center text-white form-control bg-gray-800 flex z-10" placeholder="Enter Todo">
         <div class="gap-2 flex">
-            <button v-on:click="submitTodo" class="rounded-r-3xl add-item h-10 w-20 justify-center bg-gray-600 text-white flex z-10">
+            <button v-on:click="submitTodo"  class="rounded-r-3xl add-item h-10 w-20 justify-center bg-gray-600 text-white flex z-10">
                 <plus-thick class="h-full"></plus-thick>
                 <p class="pt-2">Add</p>
             </button>
@@ -106,39 +106,47 @@ export default {
             editedTodo: null,
             availableStatuses: ['to-do', 'in-progress', 'finished'],
             todos: [{
-                    number: '1',
+                    number: 1,
                     description: 'Steal bananas from the store.',
                     status: 'to-do',
                     id: '111'
                 },
                 {
-                    number: '2',
+                    number: 2,
                     description: 'Eat 1kg chocolate in 1 hour.',
                     status: 'in-progress',
                     id: '112'
                 },
             ],
+            
+            
 
         }
     },
     computed: {
         filteredtodos() {
-            return this.todos.filter(todo =>
+            return this.todos.filter(todo => 
                 todo.description.toLowerCase().includes(this.todo.toLowerCase())
             );
         },
     },
-
     methods: {
-        submitTodo() {
-            if (this.todo.length === 0) return;
+        async submitTodo() {
+          if (this.todo.length === 0) return; 
             if (this.editedTodo === null) {
-                this.todos.push({
-                    number: 3,
-                    description: this.todo,
-                    status: 'to-do',
-                    id: '113'
+                var checkIndex = await this.todos.findIndex((x) => {
+                    return x.description == this.todo   
                 });
+                if(checkIndex == -1){
+                    this.todos.push({
+                        number: 3,
+                        description: this.todo,
+                        status: 'to-do',
+                        id: '113'
+                    });
+                } else {
+                    alert('already added')
+                }
             } else {
                 this.todos[this.editedTodo].description = this.todo;
                 this.editedTodo = null;
@@ -163,7 +171,6 @@ export default {
         firstCharUpper(str) {
             return str.charAt(0).toUpperCase() + str.slice(1);
         },
-
     },
 
 }
