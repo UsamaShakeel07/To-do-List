@@ -7,7 +7,7 @@
             <plus-thick class="h-full"></plus-thick>
             <p class="pt-2">Add</p>
         </button>
-        <button class="rounded-3xl add-item py-2 px-3 justify-center bg-gray-400 hover:bg-gray-600 text-black hover:text-white flex z-10" @click="deleteAllTodo(index)">
+        <button class="rounded-3xl add-item py-2 px-3 justify-center bg-red-500 hover:bg-red-600 text-white flex z-10" @click="deleteAllTodo(index)">
             <p>Delete All</p>
         </button></div>
     </div>
@@ -65,7 +65,7 @@
                                         </button></div>
                                 </td>
                                 <td class="z-10 text-sm text-gray-900 font-light py-4 whitespace-nowrap">
-                                    <div @click="deleteTodo(index)" class="flex z-10 justify-center"><button class="flex z-10">
+                                    <div @click="deleteTodo(index)" class="flex z-10 text-red-500 hover:text-red-600 justify-center"><button class="flex z-10">
                                             <delete-outline class="text-xl"></delete-outline>
                                         </button></div>
                                 </td>
