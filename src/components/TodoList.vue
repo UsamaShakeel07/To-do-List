@@ -3,13 +3,15 @@
     <h1 class="flex todo justify-center text-center text-tertiary-500 pt-20 text-6xl">TODO LIST</h1>
     <div class="z-10 field flex justify-center w-full items-center content-center pt-10">
         <input v-model="todo" v-on:keyup.enter="submitTodo" type="text" class="rounded-l-3xl w-60 h-10 text-center justify-center text-white form-control bg-gray-800 flex z-10" placeholder="Enter Todo">
-        <div class="gap-2 flex"><button v-on:click="submitTodo" class="rounded-r-3xl add-item h-10 w-20 justify-center bg-gray-600 text-white flex z-10">
-            <plus-thick class="h-full"></plus-thick>
-            <p class="pt-2">Add</p>
-        </button>
-        <button class="rounded-3xl add-item py-2 px-3 justify-center bg-red-500 hover:bg-red-600 text-white flex z-10" @click="deleteAllTodo(index)">
-            <p>Delete All</p>
-        </button></div>
+        <div class="gap-2 flex">
+            <button v-on:click="submitTodo" class="rounded-r-3xl add-item h-10 w-20 justify-center bg-gray-600 text-white flex z-10">
+                <plus-thick class="h-full"></plus-thick>
+                <p class="pt-2">Add</p>
+            </button>
+            <button class="rounded-3xl add-item py-2 px-3 justify-center bg-red-500 hover:bg-red-600 text-white flex z-10" @click="deleteAllTodo(index)">
+                <p>Delete All</p>
+            </button>
+        </div>
     </div>
     <div class="flex flex-col pt-5 pb-20">
         <div id='todo-item' class="w-full bg-gray-600 text-white text-2xl text-center flex justify-center" v-if="!todos || todos.length == 0">
